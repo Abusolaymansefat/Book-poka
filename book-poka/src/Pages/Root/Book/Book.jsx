@@ -7,7 +7,7 @@ const Book = ({singleBook}) => {
     // console.log(data)
     // console.log(singleBook)
 
-    const {bookName, author, bookId, image, rating, category, tags, yearOfPublishing, publisher} = singleBook
+    const {bookName, bookId, image, rating, category, tags, yearOfPublishing, publisher} = singleBook
     return (
         <Link to={`/bookDetails/${bookId}`}>
         <div className="card bg-base-100 w-96 shadow-sm border p-6 shadow">
