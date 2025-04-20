@@ -2,6 +2,11 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { FaStarHalfAlt } from "react-icons/fa";
 import { addtoStoreDB } from '../../Utility/addToDB';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { ToastContainer, toast } from 'react-toastify';
+
+const MySwal = withReactContent(Swal)
 
 const BookDetails = () => {
 
@@ -15,6 +20,25 @@ const BookDetails = () => {
     const {bookName, image, rating, category, tags, yearOfPublishing, review} = singleBook || {}
 
     const handleMarAsRead = id => {
+
+
+        // MySwal.fire({
+        //     title: <p>Hello World</p>,
+        //     didOpen: () => {
+        //       // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+        //       MySwal.showLoading()
+        //     },
+        //   }).then(() => {
+        //     return MySwal.fire(<p>Shorthand works too</p>)
+        //   })
+        // Swal.fire({
+        //     title: "Drag me!",
+        //     icon: "success",
+        //     draggable: true
+        //   });
+        toast("Wow so easy!")
+
+
         addtoStoreDB(id)
 
     }
@@ -35,7 +59,7 @@ const BookDetails = () => {
                             </button>
                         ))}
                     </div>
-
+                    <ToastContainer />
                     <h2 className="text-2xl font-bold">
                         {bookName}
                         <span className="ml-4 badge badge-secondary">{yearOfPublishing}</span>
